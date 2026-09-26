@@ -1,4 +1,4 @@
-import request from 'supertest';
+import { api } from '../helpers/api.js';
 import { expect } from 'chai';
 import {getToken} from '../helpers/auth.js';
 
@@ -6,12 +6,12 @@ describe('Login', () => {
     let token;
 
     before(async () => {
-        token = await getToken('admin@escola.com', 'admin123');
+        token = await getToken(process.env.ADMIN_EMAIL, process.env.ADMIN_SENHA);
     });
 
     it('deve cadastrar um aluno quando ele informa dados válidos', async () => {
         // Cadastrar o aluno
-        const cadastroAlunoResposta = await request('http://localhost:3000')
+        const cadastroAlunoResposta = await api()
             .post('/api/admin/alunos')
             .set('Content-Type', 'application/json')
             .set('Authorization', `Bearer ${token}`)
