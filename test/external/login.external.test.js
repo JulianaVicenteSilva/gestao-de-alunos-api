@@ -22,7 +22,7 @@ describe('Login', () => {
         expect(loginResposta.status).to.equal(400);
     });
 
-    it('deve retornar 401 quando o usuáio estiver correto mas a senha for incorreta', async () => {
+    it('deve retornar 401 quando o usuário estiver correto mas a senha for incorreta', async () => {
         const loginResposta = await request('http://localhost:3000')
             .post('/api/auth/login')
             .set('Content-Type', 'application/json')

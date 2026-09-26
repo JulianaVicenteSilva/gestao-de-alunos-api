@@ -1,5 +1,6 @@
 {
   "require": ["dotenv/config"],
   "recursive": true,
-  "spec": "test/**/*.test.js"
+  "spec": "test/**/*.test.js",
+  "exit": true
 }
