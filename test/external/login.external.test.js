@@ -31,4 +31,14 @@ describe('Login', () => {
         
         expect(loginResposta.status).to.equal(401);
     });
+    
+    it('deve retornar 200 quando o aluno informar usuário e senha corretos', async () => {
+        const loginResposta = await api()
+            .post('/api/auth/login')
+            .set('Content-Type', 'application/json')
+            .send({ 'email': 'ana.souza@example.com',
+                    'senha': '123456' });
+
+        expect(loginResposta.status).to.equal(200);
+    });
 });

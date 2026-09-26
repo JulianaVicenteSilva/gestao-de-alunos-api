@@ -16,8 +16,8 @@ describe('Matrícula de aluno em disciplina', () => {
             .set('Authorization', await comTokenDeAdmin())
             .send({
                 nome: 'Maria Oliveira',
-                email: 'maria.oliveira4@example.com',
-                matricula: '2026-104',
+                email: 'maria.oliveira5@example.com',
+                matricula: '2026-105',
                 senha: '123456'
             });
 
@@ -30,7 +30,7 @@ describe('Matrícula de aluno em disciplina', () => {
             .set('Authorization', await comTokenDeAdmin())
             .send({
                 nome: 'Matemática Avançada',
-                codigo: 'MAT204',
+                codigo: 'MAT205',
                 cargaHoraria: 60
             }); 
 
