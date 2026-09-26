@@ -5,8 +5,8 @@ import { comTokenDeAdmin, comTokenDeAluno } from '../helpers/auth.js';
 describe('Entrega de trabalho pelo aluno', () => {
     // ANTES DE RODAR ESSE IT
     // - Tenha o email e a senha do admin (ADMIN_EMAIL e ADMIN_SENHA) cadastrados no banco de dados
-    // - Não ter no banco de dados um aluno com email 'carlos.souza1@example.com' e matrícula '2026-201'
-    // - Não ter uma disciplina com código 'FIS201' cadastrada no banco de dados
+    // - Não ter no banco de dados um aluno com email 'carlos.souza2@example.com' e matrícula '2026-202'
+    // - Não ter uma disciplina com código 'FIS202' cadastrada no banco de dados
     it('Validar que um aluno matriculado pode registrar a entrega de um trabalho', async () => {
         // Arrange (Given/Dado que/preparar)
         // Cadastrar Aluno (como admin)
@@ -16,8 +16,8 @@ describe('Entrega de trabalho pelo aluno', () => {
             .set('Authorization', await comTokenDeAdmin())
             .send({
                 nome: 'Carlos Souza',
-                email: 'carlos.souza1@example.com',
-                matricula: '2026-201',
+                email: 'carlos.souza2@example.com',
+                matricula: '2026-202',
                 senha: '123456'
             });
 
@@ -31,7 +31,7 @@ describe('Entrega de trabalho pelo aluno', () => {
             .set('Authorization', await comTokenDeAdmin())
             .send({
                 nome: 'Física',
-                codigo: 'FIS201',
+                codigo: 'FIS202',
                 cargaHoraria: 60
             });
 
@@ -54,7 +54,7 @@ describe('Entrega de trabalho pelo aluno', () => {
         const entregaTrabalhoResposta = await api()
             .post(`/api/alunos/${alunoId}/trabalhos`)
             .set('Content-Type', 'application/json')
-            .set('Authorization', await comTokenDeAluno('carlos.souza1@example.com', '123456'))
+            .set('Authorization', await comTokenDeAluno('carlos.souza2@example.com', '123456'))
             .send({
                 disciplinaId: disciplinaId,
                 titulo: 'Lista de Exercícios 1',

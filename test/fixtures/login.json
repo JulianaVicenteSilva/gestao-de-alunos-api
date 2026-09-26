@@ -1,0 +1,32 @@
+[
+    {
+        "descricao": "o email não for informado",
+        "email": "",
+        "senha": "123456",
+        "statusEsperado": 400
+    },
+    {
+        "descricao": "a senha não for informada",
+        "email": "ana.souza@example.com",
+        "senha": "",
+        "statusEsperado": 400
+    },
+    {
+        "descricao": "a senha estiver incorreta",
+        "email": "ana.souza@example.com",
+        "senha": "senhaErrada",
+        "statusEsperado": 401
+    },
+    {
+        "descricao": "o email não estiver cadastrado",
+        "email": "naoexiste@example.com",
+        "senha": "123456",
+        "statusEsperado": 401
+    },
+    {
+        "descricao": "o aluno informar email e senha corretos",
+        "email": "ana.souza@example.com",
+        "senha": "123456",
+        "statusEsperado": 200
+    }
+]
