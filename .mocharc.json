@@ -1,0 +1,5 @@
+{
+  "require": ["dotenv/config"],
+  "recursive": true,
+  "spec": "test/**/*.test.js"
+}
