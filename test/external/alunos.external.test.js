@@ -17,18 +17,18 @@ describe('Login', () => {
             .set('Authorization', `Bearer ${token}`)
             .send({
                     nome: 'Juliana Silva',
-                    email: 'juliana.silva2@example.com',
-                    matricula: '2026-002',
+                    email: 'juliana.silva4@example.com',
+                    matricula: '2026-004',
                     senha: '123456'
                  });
         
         // Validar que ele foi cadastrado
         // ANTES DE RODAR ESSE TESTE
-        // - Não ter no banco de dados um aluno com email 'juliana.silva@example.com' e matrícula '2026-001'
+        // - Não ter no banco de dados um aluno com email 'juliana.silva4@example.com' e matrícula '2026-004'
         expect(cadastroAlunoResposta.status).to.equal(201);
         expect(cadastroAlunoResposta.body.nome).to.equal('Juliana Silva');
-        expect(cadastroAlunoResposta.body.email).to.equal('juliana.silva2@example.com');
-        expect(cadastroAlunoResposta.body.matricula).to.equal('2026-002');
+        expect(cadastroAlunoResposta.body.email).to.equal('juliana.silva4@example.com');
+        expect(cadastroAlunoResposta.body.matricula).to.equal('2026-004');
     });
 
     it('deve negar cadastrar um aluno quando ele já existe', async () => {
